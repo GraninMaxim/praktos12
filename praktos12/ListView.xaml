@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="praktos12.ListView"
+             Title="ListView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="dotnet_bot.svg" Order="Primary" Priority="0" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="Purple" />
+                <Setter Property="CornerRadius" Value="8" />
+                <Setter Property="WidthRequest" Value="310" />
+                <Setter Property="HeightRequest" Value="50" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Padding="10" Spacing="20">
+        <ListView x:Name="CountriesListView" SelectionMode="Single" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+
+                            <Label Grid.Row="0" Text="{Binding Name, StringFormat='ФИО Лектора: {10}'}" />
+                            <Label Grid.Row="1" Text="{Binding Address, StringFormat='Предмет: {10}'}" />
+                            <Label Grid.Row="2" Text="{Binding PhoneNumber, StringFormat='Номер аудитории: {10}'}" />
+                        </StackLayout>
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Clicked="Edit_Clicked" Text="редактировать" />
+        <Button Clicked="Remove_Clicked" Text="Удалить" />
+
+    </VerticalStackLayout>
+</ContentPage>
